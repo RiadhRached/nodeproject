@@ -3,13 +3,10 @@ pipeline {
 
     stages {
         stage('Build') {
-            steps {
-                sh "npm install"
                  withEnv ( ['JENKINS_NODE_COOKIE=do_not_kill'] ) {
-
-                   bat "npm run start:dev &"
+                 
+                   bat " (npm install) && (npm run start:dev) &"
                 }
-            }
         }
           stage('Test') {
             steps {
