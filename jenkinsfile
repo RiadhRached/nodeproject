@@ -3,10 +3,14 @@ pipeline {
 
     stages {
         stage('Build') {
-                 withEnv ( ['JENKINS_NODE_COOKIE=do_not_kill'] ) {
-                 
-                   bat " (npm install) && (npm run start:dev) &"
+                steps{
+            script{
+                withEnv(['BUILD_ID=dontkill']) {
+		    sh "npm install"
+                    sh "nohup npm run start:dev &"
                 }
+            }
+        }
         }
           stage('Test') {
             steps {
