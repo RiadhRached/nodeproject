@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh "npm install"
-                BUILD_ID=dontKillMe nohup bash npm run build.sh &
+                sh "npm run start:dev -parameters &> /dev/null &"
             }
         }
           stage('Test') {
