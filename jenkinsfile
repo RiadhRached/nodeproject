@@ -8,6 +8,7 @@ pipeline {
                 withEnv(['BUILD_ID=dontkill']) {
 		    sh "npm install"
                     sh "nohup npm run start:dev"
+		     sh "&"
                 }
             }
         }
