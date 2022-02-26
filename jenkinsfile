@@ -7,7 +7,7 @@ pipeline {
             script{
                 withEnv(['BUILD_ID=dontkill']) {
 		    sh "npm install"
-                    sh "nohup npm run start:dev"
+                    sh "nohup npm run start:dev &"
 		     sh "&"
                 }
             }
